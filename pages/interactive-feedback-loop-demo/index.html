@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>interactive feedback loop demo</title>
+  <style>
+    :root { color-scheme: dark; --bg:#08090c; --card:#131722; --muted:#95a0b8; --text:#f4f7ff; --accent:#8bd3ff; --good:#9cffb2; --bad:#ff9aa9; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif; background:radial-gradient(circle at top,#1a2540,#08090c 55%); color:var(--text); }
+    main { max-width:900px; margin:0 auto; padding:28px; }
+    .card { background:rgba(19,23,34,.9); border:1px solid rgba(255,255,255,.09); border-radius:22px; padding:22px; box-shadow:0 18px 60px rgba(0,0,0,.35); }
+    h1 { margin:0 0 8px; font-size:clamp(28px,5vw,48px); }
+    p { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:18px 0; }
+    button, a.button { border:0; border-radius:14px; padding:13px 15px; background:#20283a; color:var(--text); cursor:pointer; text-decoration:none; text-align:center; display:inline-block; font-weight:700; }
+    button:hover, a.button:hover { background:#2a3550; }
+    button.selected { outline:2px solid var(--accent); background:#15324a; }
+    label { display:block; margin:18px 0 8px; font-weight:700; }
+    textarea,input { width:100%; min-height:90px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background:#080b12; color:var(--text); padding:12px; font:inherit; }
+    input { min-height:auto; }
+    pre { white-space:pre-wrap; word-break:break-word; background:#070a10; border-radius:14px; padding:14px; border:1px solid rgba(255,255,255,.1); }
+    .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:12px; }
+    .small { font-size:13px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>interactive html → telegram loop</h1>
+      <p>demo pattern: the page collects your choices locally, builds a context packet, then gives you copy/share buttons to send it back to oli in telegram. no backend needed.</p>
+
+      <label>1. pick a direction</label>
+      <div class="grid" id="choices">
+        <button data-value="ship this direction">ship this direction</button>
+        <button data-value="make it shorter">make it shorter</button>
+        <button data-value="add more detail">add more detail</button>
+        <button data-value="not quite, rethink it">not quite, rethink it</button>
+      </div>
+
+      <label for="notes">2. add notes</label>
+      <textarea id="notes" placeholder="type feedback, edits, extra context..."></textarea>
+
+      <label for="name">3. optional label for this run</label>
+      <input id="name" placeholder="e.g. job shortlist feedback" />
+
+      <div class="row">
+        <button id="build">build telegram message</button>
+        <button id="copy">copy</button>
+        <a class="button" id="share" href="#">open telegram share</a>
+      </div>
+      <p class="small" id="status">waiting for input</p>
+      <pre id="out"></pre>
+    </section>
+  </main>
+<script>
+const context = {
+  artifact_type: 'interactive_html_feedback',
+  artifact_title: 'interactive feedback loop demo',
+  artifact_url: location.href,
+  instruction: 'Continue from this HTML artifact and use my feedback below as the next user input.'
+};
+let selected = '';
+document.querySelectorAll('#choices button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#choices button').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selected = btn.dataset.value;
+    build();
+  });
+});
+function build() {
+  const payload = {
+    ...context,
+    run_label: document.querySelector('#name').value.trim(),
+    selected_direction: selected,
+    notes: document.querySelector('#notes').value.trim(),
+    created_at: new Date().toISOString()
+  };
+  const msg = `oli, continue from this interactive html. meoooww\n\n\`\`\`json\n${JSON.stringify(payload, null, 2)}\n\`\`\``;
+  document.querySelector('#out').textContent = msg;
+  document.querySelector('#share').href = 'https://t.me/share/url?url=&text=' + encodeURIComponent(msg);
+  document.querySelector('#status').textContent = 'message ready';
+  return msg;
+}
+document.querySelector('#build').addEventListener('click', build);
+document.querySelector('#copy').addEventListener('click', async () => {
+  const msg = build();
+  await navigator.clipboard.writeText(msg);
+  document.querySelector('#status').textContent = 'copied — paste it into telegram';
+});
+document.querySelector('#notes').addEventListener('input', build);
+document.querySelector('#name').addEventListener('input', build);
+build();
+</script>
+</body>
+</html>
