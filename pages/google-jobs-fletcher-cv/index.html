@@ -1,331 +1,293 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Google jobs matched to Fletcher CV</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Google LinkedIn jobs matched to Fletcher CV</title>
 <style>
-:root{--bg:#0b1020;--card:#111936;--muted:#aeb7d8;--text:#f5f7ff;--accent:#8ab4ff;--good:#72e6a2;--warn:#ffd166;--bad:#ff8a8a}
-*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;background:linear-gradient(180deg,#071023,#14172b);color:var(--text);line-height:1.45}
-header{padding:32px 20px;border-bottom:1px solid #293454;background:rgba(5,10,25,.85);position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}
-main{max-width:1120px;margin:0 auto;padding:22px} h1{margin:.1rem 0;font-size:clamp(1.7rem,4vw,3rem)} h2{margin:.1rem 0 .35rem} a{color:var(--accent)}
-.sub,.meta,.source{color:var(--muted)} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:18px 0} .card{background:rgba(17,25,54,.92);border:1px solid #2a355a;border-radius:18px;padding:18px;box-shadow:0 10px 28px rgba(0,0,0,.22)}
-.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px} input[type=search],textarea{background:#060b18;border:1px solid #314169;color:var(--text);border-radius:12px;padding:10px 12px} input[type=search]{min-width:min(420px,100%)} button,.btn{background:#20386d;color:#fff;border:1px solid #3f62aa;border-radius:12px;padding:10px 13px;cursor:pointer;text-decoration:none;display:inline-block} button:hover,.btn:hover{background:#2b4a8c}
-.role{display:grid;grid-template-columns:58px 1fr;gap:14px;margin:16px 0} .rank{height:42px;width:42px;border-radius:999px;background:#223d78;display:grid;place-items:center;font-weight:800} .tags{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0} .tags span{font-size:.82rem;background:#243154;border:1px solid #40517b;border-radius:999px;padding:4px 8px} h3{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#bed0ff;margin:14px 0 4px} .verdict{color:var(--good);font-weight:700} .pick{display:inline-flex;gap:8px;align-items:center;margin-top:8px;background:#0b1226;border:1px solid #33436c;padding:8px 10px;border-radius:12px} .avoid .verdict{color:var(--warn)}
-footer{padding:30px 22px;color:var(--muted);text-align:center} pre{white-space:pre-wrap;background:#060b18;border:1px solid #314169;border-radius:12px;padding:12px;max-height:260px;overflow:auto} .hidden{display:none} .small{font-size:.9rem}
+:root{--bg:#f6f7fb;--ink:#162033;--muted:#697386;--card:#fff;--line:#dde3ee;--accent:#2458d3;--good:#0b7a4b;--warn:#a16207;--shadow:0 10px 30px rgba(20,35,70,.09)}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.45} a{color:var(--accent)}
+.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:transform .24s ease, box-shadow .24s ease}.header.hidden{transform:translateY(-82%)}.header:hover,.header:focus-within{transform:translateY(0)}
+.header-inner{max-width:1040px;margin:0 auto;padding:18px 20px 14px} h1{font-size:clamp(1.45rem,4vw,2.45rem);margin:0 0 4px;letter-spacing:-.04em} .sub,.meta,.fine{color:var(--muted)} .fine{font-size:.88rem}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px} input[type=search],textarea{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;color:var(--ink)} input[type=search]{min-width:min(420px,100%)} button{border:0;border-radius:12px;background:var(--ink);color:#fff;padding:10px 13px;cursor:pointer} button.secondary{background:#edf2ff;color:#18346e}
+main{max-width:1040px;margin:0 auto;padding:20px} .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:16px} .card,.role{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)} .card{padding:18px}
+.role{display:grid;grid-template-columns:82px 1fr;gap:16px;padding:18px;margin:14px 0} .role.weak{opacity:.78} .score{width:64px;height:64px;border-radius:18px;background:#eef4ff;display:grid;place-items:center;color:var(--accent)} .score strong{font-size:1.3rem} .score span{font-size:.72rem;margin-top:-20px} .row{display:flex;gap:12px;justify-content:space-between;align-items:start} h2{margin:.05rem 0 .35rem;font-size:1.22rem} h3{margin:0 0 8px} .tags{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0} .tags span{font-size:.8rem;border:1px solid #cbd5e1;border-radius:999px;padding:3px 8px;background:#f8fafc} details{margin-top:10px;color:var(--muted)}
+.feedback{position:relative} #packet{white-space:pre-wrap;background:#0d1220;color:#e6edf7;border-radius:14px;padding:12px;max-height:260px;overflow:auto;font-size:.86rem} .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#101827;color:white;padding:10px 14px;border-radius:999px;opacity:0;transition:.2s;z-index:40} .toast.show{opacity:1} ul{padding-left:20px} @media(max-width:640px){.role{grid-template-columns:1fr}.score{width:auto;height:auto;padding:8px 10px;display:inline-flex;gap:2px}}
 </style></head><body>
-<header><h1>Google jobs matched to Fletcher’s CV</h1><div class="sub">generated 2026-07-12 22:54 · public-safe summary · links verified from live sources</div>
-<div class="controls"><input id="q" type="search" placeholder="filter by title/tag/verdict..." oninput="filterCards()"><button onclick="sortByScore()">sort by fit</button><button onclick="copyLinks()">copy visible links</button><a class="btn" id="share" target="_blank" rel="noopener noreferrer">share feedback to Telegram</a></div></header>
+<header class="header" id="hdr"><div class="header-inner"><h1>Google jobs from LinkedIn, matched to your CV</h1><div class="sub">rebuilt 2026-07-12 23:04 · only URLs from the local LinkedIn search script · header folds away on scroll</div><div class="controls"><input id="q" type="search" placeholder="filter roles/tags..." oninput="filterCards()"><button class="secondary" onclick="copyVisibleLinks()">copy visible links</button><button onclick="copyPacket()">copy feedback packet</button></div></div></header>
 <main>
-<section class="grid">
- <div class="card"><h3>cv source checked</h3><p>/Users/home-server/job-hunter/iCloud/resumes/cv-kit/outputs/3_google-payments.md</p></div>
- <div class="card"><h3>best fit pattern</h3><p>mid-level SWE: payments/identity, Kotlin/Java backend, mobile-adjacent product delivery, engineering productivity, careful rollout/reliability.</p></div>
- <div class="card"><h3>source evidence</h3><p>LinkedIn wrapper: raw=16, link_valid=16, invalid_links=0. Google Careers pages extracted separately for official role detail.</p></div>
-</section>
-<section class="card"><h3>CV signals used</h3><p>Kotlin/Spring Boot payment systems; PCI-sensitive card data; cross-team mobile/backend/vendor delivery; production rollout/audit/alerting; E2E test infrastructure; C++ trading risk controls; React/Python full-stack; AWS/DynamoDB/Kafka/Docker.</p><p><strong>Likely avoid:</strong> networking/security/SRE/DevOps-heavy roles, data center technician, associate/early-career if positioned below current level.</p></section>
+<section class="summary"><div class="card"><h3>source integrity</h3><p>Used <code>linkedin-job-agent</code> only. No Google Careers/web_search links. Wrapper output: <b>raw=16 link_valid=16 invalid_links=0 kept=8 removed=8</b>.</p></div><div class="card"><h3>CV read</h3><p>/Users/home-server/job-hunter/iCloud/resumes/cv-kit/outputs/3_google-payments.md</p><p class="fine">Strong signals: Kotlin/Spring, regulated payments, PCI-sensitive card data, mobile/backend/vendor delivery, rollout reliability, CI/test tooling, C++ trading systems.</p></div><div class="card"><h3>best match</h3><p><b>Software Engineer, Payments Identity</b> is still the cleanest fit. Photos/mobile and FDE AI are maybes depending on what you want next.</p></div></section>
 <section id="roles">
-<article class="card role" data-score="94" data-verdict="best match" data-title="software engineer, payments identity" data-tags="payments backend kotlin/java-adjacent regulated data mobile/backend/vendor delivery">
-  <div class="rank">#1</div>
-  <div class="role-main">
-    <h2><a href="https://www.linkedin.com/jobs/view/4418252453" target="_blank" rel="noopener noreferrer">Software Engineer, Payments Identity</a></h2>
-    <p class="meta">Sydney, New South Wales, Australia · score <strong>94</strong>/100 · <span class="verdict">best match</span></p>
-    <div class="tags"><span>payments</span><span>backend</span><span>Kotlin/Java-adjacent</span><span>regulated data</span><span>mobile/backend/vendor delivery</span></div>
-    <h3>why it fits</h3><p>Directly matches Zip card/payment systems, PCI-sensitive PAN/CVV work, backend APIs, mobile surfaces, vendor coordination, and regulated rollout experience.</p>
-    <h3>cv angle</h3><p>Lead with Zip PAN/CVV reveal, PCI DSS, Kotlin/Spring Boot, cross-team delivery, and rollout reliability.</p>
-    <h3>caveat</h3><p>This one came from verified LinkedIn data, not Google Careers extraction in this run; link validation passed against LinkedIn guest jobPosting.</p>
-    <p class="source">source: LinkedIn via verified linkedin-job-agent · date: 2026-07-08</p>
-    <label class="pick"><input type="checkbox" value="payments-identity" data-title="Software Engineer, Payments Identity"> shortlist this</label>
+<article class="role recommended" data-title="software engineer, payments identity" data-tags="payments backend kotlin/spring-adjacent regulated systems" data-score="96">
+  <div class="score"><strong>96</strong><span>/100</span></div>
+  <div>
+    <div class="row"><h2><a href="https://www.linkedin.com/jobs/view/4418252453" target="_blank" rel="noopener noreferrer">Software Engineer, Payments Identity</a></h2><label><input type="checkbox" data-id="li-4418252453" data-title="Software Engineer, Payments Identity"> pick</label></div>
+    <p class="meta">Sydney, New South Wales, Australia · posted 2026-07-08 · <b>best match</b></p>
+    <div class="tags"><span>payments</span><span>backend</span><span>Kotlin/Spring-adjacent</span><span>regulated systems</span></div>
+    <p>Closest match to Zip PAN/CVV, PCI-sensitive card data, backend APIs, mobile surfaces, vendor coordination, and careful rollout.</p>
+    <details><summary>source proof</summary><p>LinkedIn public guest endpoint via local linkedin-job-agent</p><p>ok · https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4418252453</p></details>
   </div>
 </article>
 
-<article class="card role" data-score="86" data-verdict="strong match" data-title="software engineer, photos video consumption" data-tags="kotlin/java/c++ mobile user-facing product cross-functional">
-  <div class="rank">#2</div>
-  <div class="role-main">
-    <h2><a href="https://www.google.com/about/careers/applications/jobs/results/118030649721266886-software-engineer/" target="_blank" rel="noopener noreferrer">Software Engineer, Photos Video Consumption</a></h2>
-    <p class="meta">Sydney NSW, Australia · score <strong>86</strong>/100 · <span class="verdict">strong match</span></p>
-    <div class="tags"><span>Kotlin/Java/C++</span><span>mobile</span><span>user-facing product</span><span>cross-functional</span></div>
-    <h3>why it fits</h3><p>Requires 2 years Kotlin/Java/C++ or Obj-C/Swift plus cross-functional product work. Your Zip work has mobile/backend delivery, customer interviews, production rollout, Kotlin, and high-scale user impact.</p>
-    <h3>cv angle</h3><p>Emphasise user-facing payment feature for 6M+ users, customer feedback, mobile/backend coordination, and Kotlin/Spring depth.</p>
-    <h3>caveat</h3><p>Less payments-specific, but strong product/mobile fit.</p>
-    <p class="source">source: Google Careers official page extracted · date: current in Google Careers extraction</p>
-    <label class="pick"><input type="checkbox" value="photos-video" data-title="Software Engineer, Photos Video Consumption"> shortlist this</label>
+<article class="role recommended" data-title="front-end software engineer, google photos" data-tags="frontend product user-facing google photos" data-score="78">
+  <div class="score"><strong>78</strong><span>/100</span></div>
+  <div>
+    <div class="row"><h2><a href="https://www.linkedin.com/jobs/view/4426946907" target="_blank" rel="noopener noreferrer">Front-End Software Engineer, Google Photos</a></h2><label><input type="checkbox" data-id="li-4426946907" data-title="Front-End Software Engineer, Google Photos"> pick</label></div>
+    <p class="meta">Sydney, New South Wales, Australia · posted 2026-07-04 · <b>good if frontend/mobile-adjacent</b></p>
+    <div class="tags"><span>frontend</span><span>product</span><span>user-facing</span><span>Google Photos</span></div>
+    <p>You said frontend is fine; this can use your user-facing Zip delivery/customer feedback story, but it is less backend/payments aligned.</p>
+    <details><summary>source proof</summary><p>LinkedIn public guest endpoint via local linkedin-job-agent</p><p>ok · https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4426946907</p></details>
   </div>
 </article>
 
-<article class="card role" data-score="83" data-verdict="strong match" data-title="software engineer, mainline engineering productivity" data-tags="engineering productivity android tooling quality/release infra strict timelines">
-  <div class="rank">#3</div>
-  <div class="role-main">
-    <h2><a href="https://www.google.com/about/careers/applications/jobs/results/140439200817128134-software-engineer/" target="_blank" rel="noopener noreferrer">Software Engineer, Mainline Engineering Productivity</a></h2>
-    <p class="meta">Sydney NSW, Australia · score <strong>83</strong>/100 · <span class="verdict">strong match</span></p>
-    <div class="tags"><span>engineering productivity</span><span>Android tooling</span><span>quality/release infra</span><span>strict timelines</span></div>
-    <h3>why it fits</h3><p>Maps well to your company-wide E2E test user proxy: CI success 23% → 94%, runtime 19 min → 5 min, single-line adoption across teams.</p>
-    <h3>cv angle</h3><p>Lead with operational tooling/test infrastructure, adoption by Payments/Mobile/Issuing, and reliability improvements.</p>
-    <h3>caveat</h3><p>Android-domain context may require framing your tooling work as engineering-productivity rather than pure product backend.</p>
-    <p class="source">source: Google Careers official page extracted · date: current in Google Careers extraction</p>
-    <label class="pick"><input type="checkbox" value="mainline-engprod" data-title="Software Engineer, Mainline Engineering Productivity"> shortlist this</label>
+<article class="role recommended" data-title="software engineer, mobile (ios), google photos" data-tags="mobile product google photos" data-score="72">
+  <div class="score"><strong>72</strong><span>/100</span></div>
+  <div>
+    <div class="row"><h2><a href="https://www.linkedin.com/jobs/view/4363310620" target="_blank" rel="noopener noreferrer">Software Engineer, Mobile (iOS), Google Photos</a></h2><label><input type="checkbox" data-id="li-4363310620" data-title="Software Engineer, Mobile (iOS), Google Photos"> pick</label></div>
+    <p class="meta">Sydney, New South Wales, Australia · posted 2026-06-26 · <b>good product/mobile option</b></p>
+    <div class="tags"><span>mobile</span><span>product</span><span>Google Photos</span></div>
+    <p>Mobile/product delivery overlaps with Zip card reveal and digital wallet migration, but iOS is not your strongest listed stack.</p>
+    <details><summary>source proof</summary><p>LinkedIn public guest endpoint via local linkedin-job-agent</p><p>ok · https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4363310620</p></details>
   </div>
 </article>
 
-<article class="card role" data-score="76" data-verdict="good but slightly early/mobile-heavy" data-title="software engineer, android consumer experiences" data-tags="android/mobile kotlin rapid prototypes cross-functional">
-  <div class="rank">#4</div>
-  <div class="role-main">
-    <h2><a href="https://www.google.com/about/careers/applications/jobs/results/94638125979968198-software-engineer/" target="_blank" rel="noopener noreferrer">Software Engineer, Android Consumer Experiences</a></h2>
-    <p class="meta">Sydney NSW, Australia · score <strong>76</strong>/100 · <span class="verdict">good but slightly early/mobile-heavy</span></p>
-    <div class="tags"><span>Android/mobile</span><span>Kotlin</span><span>rapid prototypes</span><span>cross-functional</span></div>
-    <h3>why it fits</h3><p>Your Kotlin + React Native + user-facing rollout story is relevant, and the role asks for mobile/wearable software and rapid prototypes.</p>
-    <h3>cv angle</h3><p>Use the Zip card reveal and digital-wallet migration as mobile-adjacent, user-facing delivery examples.</p>
-    <h3>caveat</h3><p>Google labels it Early; may be a bit under-leveled versus your 3+ years and Optiver/Zip scope.</p>
-    <p class="source">source: Google Careers official page extracted · date: current in Google Careers extraction</p>
-    <label class="pick"><input type="checkbox" value="android-consumer" data-title="Software Engineer, Android Consumer Experiences"> shortlist this</label>
+<article class="role recommended" data-title="forward deployed engineer, gen ai, google cloud" data-tags="genai google cloud customer-facing" data-score="70">
+  <div class="score"><strong>70</strong><span>/100</span></div>
+  <div>
+    <div class="row"><h2><a href="https://www.linkedin.com/jobs/view/4429313690" target="_blank" rel="noopener noreferrer">Forward Deployed Engineer, Gen AI, Google Cloud</a></h2><label><input type="checkbox" data-id="li-4429313690" data-title="Forward Deployed Engineer, Gen AI, Google Cloud"> pick</label></div>
+    <p class="meta">Sydney, New South Wales, Australia · posted 2026-07-10 · <b>interesting AI/customer-facing option</b></p>
+    <div class="tags"><span>GenAI</span><span>Google Cloud</span><span>customer-facing</span></div>
+    <p>Could fit if you want ambiguous customer-facing AI platform work; less direct than SWE/payments.</p>
+    <details><summary>source proof</summary><p>LinkedIn public guest endpoint via local linkedin-job-agent</p><p>ok · https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4429313690</p></details>
   </div>
 </article>
 
-<article class="card role" data-score="74" data-verdict="interesting AI/customer-facing option" data-title="forward deployed engineer, gen ai, google cloud" data-tags="genai google cloud customer-facing prototyping">
-  <div class="rank">#5</div>
-  <div class="role-main">
-    <h2><a href="https://www.linkedin.com/jobs/view/4429313690" target="_blank" rel="noopener noreferrer">Forward Deployed Engineer, Gen AI, Google Cloud</a></h2>
-    <p class="meta">Sydney, New South Wales, Australia · score <strong>74</strong>/100 · <span class="verdict">interesting AI/customer-facing option</span></p>
-    <div class="tags"><span>GenAI</span><span>Google Cloud</span><span>customer-facing</span><span>prototyping</span></div>
-    <h3>why it fits</h3><p>Could fit if you want AI platform/customer-problem work: you have hands-on AI-assisted dev workflow interest plus backend/product delivery.</p>
-    <h3>cv angle</h3><p>Emphasise ambiguous delivery, translating user/customer pain into technical systems, and fast prototyping.</p>
-    <h3>caveat</h3><p>Less direct than SWE; likely more customer-facing/solutions than pure engineering.</p>
-    <p class="source">source: LinkedIn via verified linkedin-job-agent · date: 2026-07-10</p>
-    <label class="pick"><input type="checkbox" value="forward-deployed-engineer-gen-ai-google-cloud" data-title="Forward Deployed Engineer, Gen AI, Google Cloud"> shortlist this</label>
+<article class="role recommended" data-title="forward deployed engineer iii, gen ai, google cloud" data-tags="genai google cloud customer-facing" data-score="68">
+  <div class="score"><strong>68</strong><span>/100</span></div>
+  <div>
+    <div class="row"><h2><a href="https://www.linkedin.com/jobs/view/4415292472" target="_blank" rel="noopener noreferrer">Forward Deployed Engineer III, Gen AI, Google Cloud</a></h2><label><input type="checkbox" data-id="li-4415292472" data-title="Forward Deployed Engineer III, Gen AI, Google Cloud"> pick</label></div>
+    <p class="meta">Sydney, New South Wales, Australia · posted 2026-07-07 · <b>interesting AI/customer-facing option</b></p>
+    <div class="tags"><span>GenAI</span><span>Google Cloud</span><span>customer-facing</span></div>
+    <p>Similar to the FDE GenAI role; good for technical ambiguity/prototyping, weaker for pure backend SWE fit.</p>
+    <details><summary>source proof</summary><p>LinkedIn public guest endpoint via local linkedin-job-agent</p><p>ok · https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4415292472</p></details>
   </div>
 </article>
 
-<article class="card role" data-score="72" data-verdict="interesting AI/customer-facing option" data-title="forward deployed engineer iii, conversational ai" data-tags="conversational ai google cloud customer-facing">
-  <div class="rank">#6</div>
-  <div class="role-main">
-    <h2><a href="https://www.linkedin.com/jobs/view/4437566658" target="_blank" rel="noopener noreferrer">Forward Deployed Engineer III, Conversational AI</a></h2>
-    <p class="meta">Sydney, New South Wales, Australia · score <strong>72</strong>/100 · <span class="verdict">interesting AI/customer-facing option</span></p>
+<article class="role recommended" data-title="forward deployed engineer iii, conversational ai" data-tags="conversational ai google cloud customer-facing" data-score="67">
+  <div class="score"><strong>67</strong><span>/100</span></div>
+  <div>
+    <div class="row"><h2><a href="https://www.linkedin.com/jobs/view/4437566658" target="_blank" rel="noopener noreferrer">Forward Deployed Engineer III, Conversational AI</a></h2><label><input type="checkbox" data-id="li-4437566658" data-title="Forward Deployed Engineer III, Conversational AI"> pick</label></div>
+    <p class="meta">Sydney, New South Wales, Australia · posted 2026-07-09 · <b>interesting AI/customer-facing option</b></p>
     <div class="tags"><span>Conversational AI</span><span>Google Cloud</span><span>customer-facing</span></div>
-    <h3>why it fits</h3><p>Similar FDE fit: good if you want technical customer delivery around AI rather than core product engineering.</p>
-    <h3>cv angle</h3><p>Emphasise cross-functional delivery, customer interviews, and backend/platform problem-solving.</p>
-    <h3>caveat</h3><p>May not map as cleanly to your payments CV as SWE roles.</p>
-    <p class="source">source: LinkedIn via verified linkedin-job-agent · date: 2026-07-09</p>
-    <label class="pick"><input type="checkbox" value="forward-deployed-engineer-iii-conversational-ai" data-title="Forward Deployed Engineer III, Conversational AI"> shortlist this</label>
+    <p>Potentially relevant if you want AI solutions work; not as clean a CV match as payments or engineering productivity.</p>
+    <details><summary>source proof</summary><p>LinkedIn public guest endpoint via local linkedin-job-agent</p><p>ok · https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4437566658</p></details>
   </div>
 </article>
 
-<article class="card role" data-score="58" data-verdict="stretch / probably not first choice" data-title="strategic cloud engineer, platform and ai infrastructure" data-tags="ai infrastructure cloud consulting customer-facing 6 years requested">
-  <div class="rank">#7</div>
-  <div class="role-main">
-    <h2><a href="https://www.google.com/about/careers/applications/jobs/results/109435912785404614-strategic-cloud-engineer-platform-and-ai-infrastructure" target="_blank" rel="noopener noreferrer">Strategic Cloud Engineer, Platform and AI Infrastructure</a></h2>
-    <p class="meta">Sydney NSW / Docklands VIC · score <strong>58</strong>/100 · <span class="verdict">stretch / probably not first choice</span></p>
-    <div class="tags"><span>AI infrastructure</span><span>cloud consulting</span><span>customer-facing</span><span>6 years requested</span></div>
-    <h3>why it fits</h3><p>Interesting AI infrastructure role, but it asks for 6 years and heavier cloud/DevOps/networking/customer consulting than your CV foregrounds.</p>
-    <h3>cv angle</h3><p>If applying, frame AWS/serverless experiments, backend systems, Docker, and ambiguous delivery.</p>
-    <h3>caveat</h3><p>Probably lower priority unless you actively want consulting/cloud architecture.</p>
-    <p class="source">source: Google Careers official page extracted · date: current in Google Careers extraction</p>
-    <label class="pick"><input type="checkbox" value="strategic-cloud-ai" data-title="Strategic Cloud Engineer, Platform and AI Infrastructure"> shortlist this</label>
+<article class="role weak" data-title="engineering manager, technical lead, google photos" data-tags="manager technical lead google photos" data-score="42">
+  <div class="score"><strong>42</strong><span>/100</span></div>
+  <div>
+    <div class="row"><h2><a href="https://www.linkedin.com/jobs/view/4435448042" target="_blank" rel="noopener noreferrer">Engineering Manager, Technical Lead, Google Photos</a></h2><label><input type="checkbox" data-id="li-4435448042" data-title="Engineering Manager, Technical Lead, Google Photos"> pick</label></div>
+    <p class="meta">Sydney, New South Wales, Australia · posted 2026-07-03 · <b>probably not right now</b></p>
+    <div class="tags"><span>manager</span><span>technical lead</span><span>Google Photos</span></div>
+    <p>Likely too management/leadership-heavy unless you want to stretch into EM/TL.</p>
+    <details><summary>source proof</summary><p>LinkedIn public guest endpoint via local linkedin-job-agent</p><p>ok · https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4435448042</p></details>
   </div>
 </article>
 
-<article class="card role" data-score="42" data-verdict="valid but likely avoid" data-title="software engineer, netsoft" data-tags="network planning data systems internal tools">
-  <div class="rank">#8</div>
-  <div class="role-main">
-    <h2><a href="https://www.google.com/about/careers/applications/jobs/results/122199877017838278-software-engineer/" target="_blank" rel="noopener noreferrer">Software Engineer, NetSoft</a></h2>
-    <p class="meta">Sydney NSW, Australia · score <strong>42</strong>/100 · <span class="verdict">valid but likely avoid</span></p>
-    <div class="tags"><span>network planning</span><span>data systems</span><span>internal tools</span></div>
-    <h3>why it fits</h3><p>The internal software + data systems angle overlaps with your tooling work, but the role is explicitly global production network planning/design/deployment.</p>
-    <h3>cv angle</h3><p>Only consider if you want infra/network planning; use Optiver + tooling reliability.</p>
-    <h3>caveat</h3><p>You specifically said to avoid networking/edge/network design-style roles, so I would not prioritise this.</p>
-    <p class="source">source: Google Careers official page extracted · date: current in Google Careers extraction</p>
-    <label class="pick"><input type="checkbox" value="netsoft" data-title="Software Engineer, NetSoft"> shortlist this</label>
+<article class="role weak" data-title="data center technician" data-tags="hardware data center" data-score="12">
+  <div class="score"><strong>12</strong><span>/100</span></div>
+  <div>
+    <div class="row"><h2><a href="https://www.linkedin.com/jobs/view/4432925391" target="_blank" rel="noopener noreferrer">Data Center Technician</a></h2><label><input type="checkbox" data-id="li-4432925391" data-title="Data Center Technician"> pick</label></div>
+    <p class="meta">Sydney, New South Wales, Australia · posted 2026-06-26 · <b>not a fit</b></p>
+    <div class="tags"><span>hardware</span><span>data center</span></div>
+    <p>Not a software role; included only because it appeared in the LinkedIn source run, not recommended.</p>
+    <details><summary>source proof</summary><p>LinkedIn public guest endpoint via local linkedin-job-agent</p><p>ok · https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4432925391</p></details>
   </div>
 </article></section>
-<section class="card"><h2>send feedback back to oli</h2><p class="small">tick roles above, add notes, then copy this packet into our Telegram chat. meoooww.</p><textarea id="notes" rows="4" style="width:100%" placeholder="notes for oli, e.g. focus on payments + photos; ignore FDE..."></textarea><div class="controls"><button onclick="copyFeedback()">copy feedback packet</button><button onclick="buildFeedback()">refresh packet</button></div><pre id="packet"></pre></section>
-<section class="card"><h2>excluded / deprioritised</h2><ul><li>SRE, network security, edge networking, systems development: excluded by your stated preferences.</li><li>Associate/early-career roles: generally deprioritised unless the role is unusually good.</li><li>Data Center Technician: appeared in LinkedIn data but not a software/CV fit.</li></ul></section>
+<section class="card feedback"><h2>feedback packet</h2><p>Tick any jobs, add notes, then copy-paste this into our Telegram chat. The Telegram share link is intentionally not the main path because static pages can’t reliably post back into this exact thread.</p><textarea id="notes" rows="4" style="width:100%" placeholder="e.g. only payments + photos; hide FDE; make this less ugly..."></textarea><div class="controls"><button onclick="copyPacket()">copy packet</button><button class="secondary" onclick="refreshPacket()">refresh</button></div><pre id="packet"></pre></section>
+<section class="card"><h2>excluded by your filters</h2><p class="fine">These had valid LinkedIn URLs too, but were filtered out or deprioritised.</p><ul><li><a href="https://www.linkedin.com/jobs/view/4429657676" target="_blank" rel="noopener noreferrer">Customer Engineer Associate, Platform, Google Cloud</a> — too_junior_associate_intern_graduate — posted 2026-07-11</li>
+<li><a href="https://www.linkedin.com/jobs/view/4438336214" target="_blank" rel="noopener noreferrer">Customer Engineer Associate, Platform, Google Cloud</a> — too_junior_associate_intern_graduate — posted 2026-07-10</li>
+<li><a href="https://www.linkedin.com/jobs/view/4425840041" target="_blank" rel="noopener noreferrer">Senior Software Engineer, Site Reliability Engineering, Logs</a> — avoided_domain — posted 2026-07-01</li>
+<li><a href="https://www.linkedin.com/jobs/view/4435838197" target="_blank" rel="noopener noreferrer">Systems Development Engineer, Edge Networking</a> — avoided_domain — posted 2026-07-01</li>
+<li><a href="https://www.linkedin.com/jobs/view/4425863111" target="_blank" rel="noopener noreferrer">Site Reliability Engineering Manager, Spanner</a> — avoided_domain — posted 2026-07-01</li>
+<li><a href="https://www.linkedin.com/jobs/view/4424554257" target="_blank" rel="noopener noreferrer">Software Engineer, Site Reliability Engineering, Logs</a> — avoided_domain — posted 2026-06-26</li>
+<li><a href="https://www.linkedin.com/jobs/view/4433240702" target="_blank" rel="noopener noreferrer">Senior Software Engineer, Network Security, GGI Security</a> — avoided_domain — posted 2026-06-26</li>
+<li><a href="https://www.linkedin.com/jobs/view/4430583010" target="_blank" rel="noopener noreferrer">Engineering Manager, Android SRE, Site Reliability Engineering</a> — avoided_domain — posted 2026-06-22</li></ul></section>
 <script id="context" type="application/json">{
-  &quot;artifact_type&quot;: &quot;google_job_match_review&quot;,
-  &quot;artifact_title&quot;: &quot;Google jobs matched to Fletcher CV&quot;,
+  &quot;artifact_type&quot;: &quot;google_linkedin_job_review&quot;,
+  &quot;artifact_title&quot;: &quot;Google LinkedIn jobs matched to Fletcher CV&quot;,
+  &quot;artifact_url&quot;: &quot;https://fletcherd3.github.io/html-share/google-jobs-fletcher-cv/&quot;,
   &quot;cv_source&quot;: &quot;iCloud/resumes/cv-kit/outputs/3_google-payments.md&quot;,
-  &quot;source_evidence&quot;: {
-    &quot;linkedin_wrapper&quot;: &quot;raw=16 link_valid=16 invalid_links=0 kept=8 removed=8&quot;,
-    &quot;linkedin_kept_json&quot;: &quot;/Users/home-server/job-hunter/linkedin-job-agent/runs/google-sydney-match-review/kept_jobs.json&quot;,
-    &quot;google_careers&quot;: &quot;official Google Careers pages extracted for Photos, Mainline Engineering Productivity, Android Consumer Experiences, NetSoft, and Strategic Cloud Engineer.&quot;
-  },
-  &quot;role_ids&quot;: [
-    &quot;payments-identity&quot;,
-    &quot;photos-video&quot;,
-    &quot;mainline-engprod&quot;,
-    &quot;android-consumer&quot;,
-    &quot;forward-deployed-engineer-gen-ai-google-cloud&quot;,
-    &quot;forward-deployed-engineer-iii-conversational-ai&quot;,
-    &quot;strategic-cloud-ai&quot;,
-    &quot;netsoft&quot;
+  &quot;source_rule&quot;: &quot;Only LinkedIn job_url values produced by /Users/home-server/job-hunter/linkedin-job-agent were used; no Google Careers/web_search inferred URLs.&quot;,
+  &quot;wrapper_output&quot;: &quot;raw=16 link_valid=16 invalid_links=0 kept=8 removed=8&quot;,
+  &quot;recommended_ids&quot;: [
+    &quot;li-4418252453&quot;,
+    &quot;li-4426946907&quot;,
+    &quot;li-4363310620&quot;,
+    &quot;li-4429313690&quot;,
+    &quot;li-4415292472&quot;,
+    &quot;li-4437566658&quot;
   ]
-}</script><script id="roles-json" type="application/json">[
+}</script><script id="roles-data" type="application/json">[
   {
-    &quot;id&quot;: &quot;payments-identity&quot;,
-    &quot;rank&quot;: 1,
+    &quot;id&quot;: &quot;li-4418252453&quot;,
     &quot;title&quot;: &quot;Software Engineer, Payments Identity&quot;,
-    &quot;source&quot;: &quot;LinkedIn via verified linkedin-job-agent&quot;,
     &quot;url&quot;: &quot;https://www.linkedin.com/jobs/view/4418252453&quot;,
     &quot;location&quot;: &quot;Sydney, New South Wales, Australia&quot;,
     &quot;date&quot;: &quot;2026-07-08&quot;,
-    &quot;score&quot;: 94,
+    &quot;score&quot;: 96,
     &quot;verdict&quot;: &quot;best match&quot;,
     &quot;tags&quot;: [
       &quot;payments&quot;,
       &quot;backend&quot;,
-      &quot;Kotlin/Java-adjacent&quot;,
-      &quot;regulated data&quot;,
-      &quot;mobile/backend/vendor delivery&quot;
+      &quot;Kotlin/Spring-adjacent&quot;,
+      &quot;regulated systems&quot;
     ],
-    &quot;why&quot;: &quot;Directly matches Zip card/payment systems, PCI-sensitive PAN/CVV work, backend APIs, mobile surfaces, vendor coordination, and regulated rollout experience.&quot;,
-    &quot;cv_angle&quot;: &quot;Lead with Zip PAN/CVV reveal, PCI DSS, Kotlin/Spring Boot, cross-team delivery, and rollout reliability.&quot;,
-    &quot;caveat&quot;: &quot;This one came from verified LinkedIn data, not Google Careers extraction in this run; link validation passed against LinkedIn guest jobPosting.&quot;
+    &quot;why&quot;: &quot;Closest match to Zip PAN/CVV, PCI-sensitive card data, backend APIs, mobile surfaces, vendor coordination, and careful rollout.&quot;,
+    &quot;source&quot;: &quot;LinkedIn public guest endpoint via local linkedin-job-agent&quot;,
+    &quot;validation&quot;: &quot;ok \u00b7 https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4418252453&quot;,
+    &quot;recommended&quot;: true
   },
   {
-    &quot;id&quot;: &quot;photos-video&quot;,
-    &quot;rank&quot;: 2,
-    &quot;title&quot;: &quot;Software Engineer, Photos Video Consumption&quot;,
-    &quot;source&quot;: &quot;Google Careers official page extracted&quot;,
-    &quot;url&quot;: &quot;https://www.google.com/about/careers/applications/jobs/results/118030649721266886-software-engineer/&quot;,
-    &quot;location&quot;: &quot;Sydney NSW, Australia&quot;,
-    &quot;date&quot;: &quot;current in Google Careers extraction&quot;,
-    &quot;score&quot;: 86,
-    &quot;verdict&quot;: &quot;strong match&quot;,
+    &quot;id&quot;: &quot;li-4426946907&quot;,
+    &quot;title&quot;: &quot;Front-End Software Engineer, Google Photos&quot;,
+    &quot;url&quot;: &quot;https://www.linkedin.com/jobs/view/4426946907&quot;,
+    &quot;location&quot;: &quot;Sydney, New South Wales, Australia&quot;,
+    &quot;date&quot;: &quot;2026-07-04&quot;,
+    &quot;score&quot;: 78,
+    &quot;verdict&quot;: &quot;good if frontend/mobile-adjacent&quot;,
     &quot;tags&quot;: [
-      &quot;Kotlin/Java/C++&quot;,
+      &quot;frontend&quot;,
+      &quot;product&quot;,
+      &quot;user-facing&quot;,
+      &quot;Google Photos&quot;
+    ],
+    &quot;why&quot;: &quot;You said frontend is fine; this can use your user-facing Zip delivery/customer feedback story, but it is less backend/payments aligned.&quot;,
+    &quot;source&quot;: &quot;LinkedIn public guest endpoint via local linkedin-job-agent&quot;,
+    &quot;validation&quot;: &quot;ok \u00b7 https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4426946907&quot;,
+    &quot;recommended&quot;: true
+  },
+  {
+    &quot;id&quot;: &quot;li-4363310620&quot;,
+    &quot;title&quot;: &quot;Software Engineer, Mobile (iOS), Google Photos&quot;,
+    &quot;url&quot;: &quot;https://www.linkedin.com/jobs/view/4363310620&quot;,
+    &quot;location&quot;: &quot;Sydney, New South Wales, Australia&quot;,
+    &quot;date&quot;: &quot;2026-06-26&quot;,
+    &quot;score&quot;: 72,
+    &quot;verdict&quot;: &quot;good product/mobile option&quot;,
+    &quot;tags&quot;: [
       &quot;mobile&quot;,
-      &quot;user-facing product&quot;,
-      &quot;cross-functional&quot;
+      &quot;product&quot;,
+      &quot;Google Photos&quot;
     ],
-    &quot;why&quot;: &quot;Requires 2 years Kotlin/Java/C++ or Obj-C/Swift plus cross-functional product work. Your Zip work has mobile/backend delivery, customer interviews, production rollout, Kotlin, and high-scale user impact.&quot;,
-    &quot;cv_angle&quot;: &quot;Emphasise user-facing payment feature for 6M+ users, customer feedback, mobile/backend coordination, and Kotlin/Spring depth.&quot;,
-    &quot;caveat&quot;: &quot;Less payments-specific, but strong product/mobile fit.&quot;
+    &quot;why&quot;: &quot;Mobile/product delivery overlaps with Zip card reveal and digital wallet migration, but iOS is not your strongest listed stack.&quot;,
+    &quot;source&quot;: &quot;LinkedIn public guest endpoint via local linkedin-job-agent&quot;,
+    &quot;validation&quot;: &quot;ok \u00b7 https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4363310620&quot;,
+    &quot;recommended&quot;: true
   },
   {
-    &quot;id&quot;: &quot;mainline-engprod&quot;,
-    &quot;rank&quot;: 3,
-    &quot;title&quot;: &quot;Software Engineer, Mainline Engineering Productivity&quot;,
-    &quot;source&quot;: &quot;Google Careers official page extracted&quot;,
-    &quot;url&quot;: &quot;https://www.google.com/about/careers/applications/jobs/results/140439200817128134-software-engineer/&quot;,
-    &quot;location&quot;: &quot;Sydney NSW, Australia&quot;,
-    &quot;date&quot;: &quot;current in Google Careers extraction&quot;,
-    &quot;score&quot;: 83,
-    &quot;verdict&quot;: &quot;strong match&quot;,
-    &quot;tags&quot;: [
-      &quot;engineering productivity&quot;,
-      &quot;Android tooling&quot;,
-      &quot;quality/release infra&quot;,
-      &quot;strict timelines&quot;
-    ],
-    &quot;why&quot;: &quot;Maps well to your company-wide E2E test user proxy: CI success 23% \u2192 94%, runtime 19 min \u2192 5 min, single-line adoption across teams.&quot;,
-    &quot;cv_angle&quot;: &quot;Lead with operational tooling/test infrastructure, adoption by Payments/Mobile/Issuing, and reliability improvements.&quot;,
-    &quot;caveat&quot;: &quot;Android-domain context may require framing your tooling work as engineering-productivity rather than pure product backend.&quot;
-  },
-  {
-    &quot;id&quot;: &quot;android-consumer&quot;,
-    &quot;rank&quot;: 4,
-    &quot;title&quot;: &quot;Software Engineer, Android Consumer Experiences&quot;,
-    &quot;source&quot;: &quot;Google Careers official page extracted&quot;,
-    &quot;url&quot;: &quot;https://www.google.com/about/careers/applications/jobs/results/94638125979968198-software-engineer/&quot;,
-    &quot;location&quot;: &quot;Sydney NSW, Australia&quot;,
-    &quot;date&quot;: &quot;current in Google Careers extraction&quot;,
-    &quot;score&quot;: 76,
-    &quot;verdict&quot;: &quot;good but slightly early/mobile-heavy&quot;,
-    &quot;tags&quot;: [
-      &quot;Android/mobile&quot;,
-      &quot;Kotlin&quot;,
-      &quot;rapid prototypes&quot;,
-      &quot;cross-functional&quot;
-    ],
-    &quot;why&quot;: &quot;Your Kotlin + React Native + user-facing rollout story is relevant, and the role asks for mobile/wearable software and rapid prototypes.&quot;,
-    &quot;cv_angle&quot;: &quot;Use the Zip card reveal and digital-wallet migration as mobile-adjacent, user-facing delivery examples.&quot;,
-    &quot;caveat&quot;: &quot;Google labels it Early; may be a bit under-leveled versus your 3+ years and Optiver/Zip scope.&quot;
-  },
-  {
-    &quot;id&quot;: &quot;forward-deployed-engineer-gen-ai-google-cloud&quot;,
-    &quot;rank&quot;: 5,
+    &quot;id&quot;: &quot;li-4429313690&quot;,
     &quot;title&quot;: &quot;Forward Deployed Engineer, Gen AI, Google Cloud&quot;,
-    &quot;source&quot;: &quot;LinkedIn via verified linkedin-job-agent&quot;,
     &quot;url&quot;: &quot;https://www.linkedin.com/jobs/view/4429313690&quot;,
     &quot;location&quot;: &quot;Sydney, New South Wales, Australia&quot;,
     &quot;date&quot;: &quot;2026-07-10&quot;,
-    &quot;score&quot;: 74,
+    &quot;score&quot;: 70,
     &quot;verdict&quot;: &quot;interesting AI/customer-facing option&quot;,
     &quot;tags&quot;: [
       &quot;GenAI&quot;,
       &quot;Google Cloud&quot;,
-      &quot;customer-facing&quot;,
-      &quot;prototyping&quot;
+      &quot;customer-facing&quot;
     ],
-    &quot;why&quot;: &quot;Could fit if you want AI platform/customer-problem work: you have hands-on AI-assisted dev workflow interest plus backend/product delivery.&quot;,
-    &quot;cv_angle&quot;: &quot;Emphasise ambiguous delivery, translating user/customer pain into technical systems, and fast prototyping.&quot;,
-    &quot;caveat&quot;: &quot;Less direct than SWE; likely more customer-facing/solutions than pure engineering.&quot;
+    &quot;why&quot;: &quot;Could fit if you want ambiguous customer-facing AI platform work; less direct than SWE/payments.&quot;,
+    &quot;source&quot;: &quot;LinkedIn public guest endpoint via local linkedin-job-agent&quot;,
+    &quot;validation&quot;: &quot;ok \u00b7 https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4429313690&quot;,
+    &quot;recommended&quot;: true
   },
   {
-    &quot;id&quot;: &quot;forward-deployed-engineer-iii-conversational-ai&quot;,
-    &quot;rank&quot;: 6,
+    &quot;id&quot;: &quot;li-4415292472&quot;,
+    &quot;title&quot;: &quot;Forward Deployed Engineer III, Gen AI, Google Cloud&quot;,
+    &quot;url&quot;: &quot;https://www.linkedin.com/jobs/view/4415292472&quot;,
+    &quot;location&quot;: &quot;Sydney, New South Wales, Australia&quot;,
+    &quot;date&quot;: &quot;2026-07-07&quot;,
+    &quot;score&quot;: 68,
+    &quot;verdict&quot;: &quot;interesting AI/customer-facing option&quot;,
+    &quot;tags&quot;: [
+      &quot;GenAI&quot;,
+      &quot;Google Cloud&quot;,
+      &quot;customer-facing&quot;
+    ],
+    &quot;why&quot;: &quot;Similar to the FDE GenAI role; good for technical ambiguity/prototyping, weaker for pure backend SWE fit.&quot;,
+    &quot;source&quot;: &quot;LinkedIn public guest endpoint via local linkedin-job-agent&quot;,
+    &quot;validation&quot;: &quot;ok \u00b7 https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4415292472&quot;,
+    &quot;recommended&quot;: true
+  },
+  {
+    &quot;id&quot;: &quot;li-4437566658&quot;,
     &quot;title&quot;: &quot;Forward Deployed Engineer III, Conversational AI&quot;,
-    &quot;source&quot;: &quot;LinkedIn via verified linkedin-job-agent&quot;,
     &quot;url&quot;: &quot;https://www.linkedin.com/jobs/view/4437566658&quot;,
     &quot;location&quot;: &quot;Sydney, New South Wales, Australia&quot;,
     &quot;date&quot;: &quot;2026-07-09&quot;,
-    &quot;score&quot;: 72,
+    &quot;score&quot;: 67,
     &quot;verdict&quot;: &quot;interesting AI/customer-facing option&quot;,
     &quot;tags&quot;: [
       &quot;Conversational AI&quot;,
       &quot;Google Cloud&quot;,
       &quot;customer-facing&quot;
     ],
-    &quot;why&quot;: &quot;Similar FDE fit: good if you want technical customer delivery around AI rather than core product engineering.&quot;,
-    &quot;cv_angle&quot;: &quot;Emphasise cross-functional delivery, customer interviews, and backend/platform problem-solving.&quot;,
-    &quot;caveat&quot;: &quot;May not map as cleanly to your payments CV as SWE roles.&quot;
+    &quot;why&quot;: &quot;Potentially relevant if you want AI solutions work; not as clean a CV match as payments or engineering productivity.&quot;,
+    &quot;source&quot;: &quot;LinkedIn public guest endpoint via local linkedin-job-agent&quot;,
+    &quot;validation&quot;: &quot;ok \u00b7 https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4437566658&quot;,
+    &quot;recommended&quot;: true
   },
   {
-    &quot;id&quot;: &quot;strategic-cloud-ai&quot;,
-    &quot;rank&quot;: 7,
-    &quot;title&quot;: &quot;Strategic Cloud Engineer, Platform and AI Infrastructure&quot;,
-    &quot;source&quot;: &quot;Google Careers official page extracted&quot;,
-    &quot;url&quot;: &quot;https://www.google.com/about/careers/applications/jobs/results/109435912785404614-strategic-cloud-engineer-platform-and-ai-infrastructure&quot;,
-    &quot;location&quot;: &quot;Sydney NSW / Docklands VIC&quot;,
-    &quot;date&quot;: &quot;current in Google Careers extraction&quot;,
-    &quot;score&quot;: 58,
-    &quot;verdict&quot;: &quot;stretch / probably not first choice&quot;,
-    &quot;tags&quot;: [
-      &quot;AI infrastructure&quot;,
-      &quot;cloud consulting&quot;,
-      &quot;customer-facing&quot;,
-      &quot;6 years requested&quot;
-    ],
-    &quot;why&quot;: &quot;Interesting AI infrastructure role, but it asks for 6 years and heavier cloud/DevOps/networking/customer consulting than your CV foregrounds.&quot;,
-    &quot;cv_angle&quot;: &quot;If applying, frame AWS/serverless experiments, backend systems, Docker, and ambiguous delivery.&quot;,
-    &quot;caveat&quot;: &quot;Probably lower priority unless you actively want consulting/cloud architecture.&quot;
-  },
-  {
-    &quot;id&quot;: &quot;netsoft&quot;,
-    &quot;rank&quot;: 8,
-    &quot;title&quot;: &quot;Software Engineer, NetSoft&quot;,
-    &quot;source&quot;: &quot;Google Careers official page extracted&quot;,
-    &quot;url&quot;: &quot;https://www.google.com/about/careers/applications/jobs/results/122199877017838278-software-engineer/&quot;,
-    &quot;location&quot;: &quot;Sydney NSW, Australia&quot;,
-    &quot;date&quot;: &quot;current in Google Careers extraction&quot;,
+    &quot;id&quot;: &quot;li-4435448042&quot;,
+    &quot;title&quot;: &quot;Engineering Manager, Technical Lead, Google Photos&quot;,
+    &quot;url&quot;: &quot;https://www.linkedin.com/jobs/view/4435448042&quot;,
+    &quot;location&quot;: &quot;Sydney, New South Wales, Australia&quot;,
+    &quot;date&quot;: &quot;2026-07-03&quot;,
     &quot;score&quot;: 42,
-    &quot;verdict&quot;: &quot;valid but likely avoid&quot;,
+    &quot;verdict&quot;: &quot;probably not right now&quot;,
     &quot;tags&quot;: [
-      &quot;network planning&quot;,
-      &quot;data systems&quot;,
-      &quot;internal tools&quot;
+      &quot;manager&quot;,
+      &quot;technical lead&quot;,
+      &quot;Google Photos&quot;
     ],
-    &quot;why&quot;: &quot;The internal software + data systems angle overlaps with your tooling work, but the role is explicitly global production network planning/design/deployment.&quot;,
-    &quot;cv_angle&quot;: &quot;Only consider if you want infra/network planning; use Optiver + tooling reliability.&quot;,
-    &quot;caveat&quot;: &quot;You specifically said to avoid networking/edge/network design-style roles, so I would not prioritise this.&quot;
+    &quot;why&quot;: &quot;Likely too management/leadership-heavy unless you want to stretch into EM/TL.&quot;,
+    &quot;source&quot;: &quot;LinkedIn public guest endpoint via local linkedin-job-agent&quot;,
+    &quot;validation&quot;: &quot;ok \u00b7 https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4435448042&quot;,
+    &quot;recommended&quot;: false
+  },
+  {
+    &quot;id&quot;: &quot;li-4432925391&quot;,
+    &quot;title&quot;: &quot;Data Center Technician&quot;,
+    &quot;url&quot;: &quot;https://www.linkedin.com/jobs/view/4432925391&quot;,
+    &quot;location&quot;: &quot;Sydney, New South Wales, Australia&quot;,
+    &quot;date&quot;: &quot;2026-06-26&quot;,
+    &quot;score&quot;: 12,
+    &quot;verdict&quot;: &quot;not a fit&quot;,
+    &quot;tags&quot;: [
+      &quot;hardware&quot;,
+      &quot;data center&quot;
+    ],
+    &quot;why&quot;: &quot;Not a software role; included only because it appeared in the LinkedIn source run, not recommended.&quot;,
+    &quot;source&quot;: &quot;LinkedIn public guest endpoint via local linkedin-job-agent&quot;,
+    &quot;validation&quot;: &quot;ok \u00b7 https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4432925391&quot;,
+    &quot;recommended&quot;: false
   }
 ]</script>
-</main><footer>built from iCloud CV + verified LinkedIn/Google Careers source checks</footer>
+</main><div id="toast" class="toast">copied</div>
 <script>
-function cards(){return [...document.querySelectorAll('.role')]}
-function filterCards(){const q=document.querySelector('#q').value.toLowerCase(); cards().forEach(c=>{c.style.display=c.innerText.toLowerCase().includes(q)||c.dataset.tags.includes(q)?'grid':'none'})}
-function sortByScore(){const wrap=document.querySelector('#roles'); cards().sort((a,b)=>+b.dataset.score-+a.dataset.score).forEach(c=>wrap.appendChild(c))}
-async function copyLinks(){const links=cards().filter(c=>c.offsetParent!==null).map(c=>c.querySelector('a').href); await navigator.clipboard.writeText(links.join('
-')); alert('copied '+links.length+' links')}
-function buildFeedback(){const context=JSON.parse(document.querySelector('#context').textContent); const roles=JSON.parse(document.querySelector('#roles-json').textContent); const picked=[...document.querySelectorAll('.pick input:checked')].map(x=>({id:x.value,title:x.dataset.title})); const payload={...context, public_url:location.href, selected_roles:picked, notes:document.querySelector('#notes').value.trim(), created_at:new Date().toISOString()}; const msg='oli, continue from this google jobs html.
+const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
+let lastY=scrollY; addEventListener('scroll',()=>{const h=$('#hdr'); if(scrollY>120 && scrollY>lastY) h.classList.add('hidden'); else h.classList.remove('hidden'); lastY=scrollY;});
+function filterCards(){const q=$('#q').value.toLowerCase().trim(); $$('.role').forEach(c=>{const hit=!q||c.innerText.toLowerCase().includes(q)||c.dataset.tags.includes(q); c.style.display=hit?'grid':'none';});}
+function selected(){return $$('.role input[type=checkbox]:checked').map(x=>({id:x.dataset.id,title:x.dataset.title}));}
+function refreshPacket(){const payload={...JSON.parse($('#context').textContent), selected_roles:selected(), notes:$('#notes').value.trim(), created_at:new Date().toISOString()}; const msg='oli, continue from this google linkedin jobs page.
 
 ```json
 '+JSON.stringify(payload,null,2)+'
-```'; document.querySelector('#packet').textContent=msg; document.querySelector('#share').href='https://t.me/share/url?url=&text='+encodeURIComponent(msg); return msg}
-async function copyFeedback(){await navigator.clipboard.writeText(buildFeedback()); alert('feedback packet copied')}
-document.querySelectorAll('.pick input').forEach(x=>x.addEventListener('change',buildFeedback)); document.querySelector('#notes').addEventListener('input',buildFeedback); buildFeedback();
+```'; $('#packet').textContent=msg; return msg;}
+async function safeCopy(text){try{await navigator.clipboard.writeText(text); toast('copied');}catch(e){$('#packet').textContent=text+'
+
+(copy failed: select this text manually)'; toast('copy failed — select packet');}}
+function copyPacket(){safeCopy(refreshPacket());}
+function copyVisibleLinks(){const links=$$('.role').filter(c=>c.offsetParent!==null).map(c=>c.querySelector('a').href); safeCopy(links.join('
+'));}
+function toast(t){const el=$('#toast'); el.textContent=t; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),1600)}
+$$('.role input[type=checkbox]').forEach(x=>x.addEventListener('change',refreshPacket)); $('#notes').addEventListener('input',refreshPacket); refreshPacket();
 </script></body></html>
