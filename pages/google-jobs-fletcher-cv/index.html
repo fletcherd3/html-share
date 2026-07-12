@@ -277,17 +277,10 @@ const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(
 let lastY=scrollY; addEventListener('scroll',()=>{const h=$('#hdr'); h.classList.toggle('folded', scrollY>140); lastY=scrollY;});
 function filterCards(){const q=$('#q').value.toLowerCase().trim(); $$('.role').forEach(c=>{const hit=!q||c.innerText.toLowerCase().includes(q)||c.dataset.tags.includes(q); c.style.display=hit?'grid':'none';});}
 function selected(){return $$('.role input[type=checkbox]:checked').map(x=>({id:x.dataset.id,title:x.dataset.title}));}
-function refreshPacket(){const payload={...JSON.parse($('#context').textContent), selected_roles:selected(), notes:$('#notes').value.trim(), created_at:new Date().toISOString()}; const msg='oli, continue from this google linkedin jobs page.
-
-```json
-'+JSON.stringify(payload,null,2)+'
-```'; $('#packet').textContent=msg; return msg;}
-async function safeCopy(text){try{await navigator.clipboard.writeText(text); toast('copied');}catch(e){$('#packet').textContent=text+'
-
-(copy failed: select this text manually)'; toast('copy failed — select packet');}}
+function refreshPacket(){const payload={...JSON.parse($('#context').textContent), selected_roles:selected(), notes:$('#notes').value.trim(), created_at:new Date().toISOString()}; const msg=`oli, continue from this google linkedin jobs page.\n\n\`\`\`json\n${JSON.stringify(payload,null,2)}\n\`\`\``; $('#packet').textContent=msg; return msg;}
+async function safeCopy(text){try{await navigator.clipboard.writeText(text); toast('copied');}catch(e){$('#packet').textContent=text+'\n\n(copy failed: select this text manually)'; toast('copy failed — select packet');}}
 function copyPacket(){safeCopy(refreshPacket());}
-function copyVisibleLinks(){const links=$$('.role').filter(c=>c.offsetParent!==null).map(c=>c.querySelector('a').href); safeCopy(links.join('
-'));}
+function copyVisibleLinks(){const links=$$('.role').filter(c=>c.offsetParent!==null).map(c=>c.querySelector('a').href); safeCopy(links.join('\n'));}
 function toast(t){const el=$('#toast'); el.textContent=t; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),1600)}
 $$('.role input[type=checkbox]').forEach(x=>x.addEventListener('change',refreshPacket)); $('#notes').addEventListener('input',refreshPacket); refreshPacket();
 </script></body></html>
