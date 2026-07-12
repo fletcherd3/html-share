@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Sydney verified role watch</title>
+  <style>
+    :root{color-scheme:dark;--bg:#10131a;--panel:#1a2030;--line:#303a52;--text:#eef3ff;--muted:#aebbd3;--accent:#9cc5ff}
+    *{box-sizing:border-box} body{margin:0;background:linear-gradient(145deg,#10131a,#172035);color:var(--text);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{max-width:860px;margin:auto;padding:48px 20px 64px} h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:0 0 12px} h2{margin-top:34px} .lede,.muted{color:var(--muted)} .card{background:rgba(26,32,48,.93);border:1px solid var(--line);border-radius:16px;padding:20px;margin:14px 0}.role{display:flex;gap:13px;align-items:flex-start}.role input{margin-top:6px;accent-color:var(--accent);width:18px;height:18px}.role a{color:var(--text);font-weight:700;text-decoration-color:#7699c9;text-underline-offset:3px}.meta{font-size:.92rem;color:var(--muted);margin-top:3px} button{border:0;border-radius:9px;background:var(--accent);color:#0b1527;font-weight:750;padding:11px 15px;font-size:1rem;cursor:pointer}button:focus,a:focus,textarea:focus{outline:3px solid #d6e6ff;outline-offset:3px}textarea,pre{width:100%;background:#0d111a;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:12px;font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}textarea{min-height:80px;font-family:inherit;font-size:16px}pre{white-space:pre-wrap;overflow-wrap:anywhere}.toast{min-height:1.4em;color:#b9d6ff;font-weight:650}.small{font-size:.88rem;color:var(--muted)}
+  </style>
+</head>
+<body><main>
+  <p class="muted">job-search next step · 13 july 2026</p>
+  <h1>google sydney verified role watch</h1>
+  <p class="lede">a compact review queue from a live LinkedIn guest-jobs collection. Pick any roles worth exploring, add a note, then copy the feedback packet back to Oli.</p>
+
+  <h2>six link-validated roles</h2>
+  <section id="roles" aria-label="verified roles">
+    <label class="card role"><input type="checkbox" value="Forward Deployed Engineer, Gen AI, Google Cloud"><span><a href="https://www.linkedin.com/jobs/view/4429313690" target="_blank" rel="noopener noreferrer">Forward Deployed Engineer, Gen AI, Google Cloud</a><div class="meta">Google · Sydney, NSW · posted 10 jul 2026</div></span></label>
+    <label class="card role"><input type="checkbox" value="Forward Deployed Engineer III, Conversational AI"><span><a href="https://www.linkedin.com/jobs/view/4437566658" target="_blank" rel="noopener noreferrer">Forward Deployed Engineer III, Conversational AI</a><div class="meta">Google · Sydney, NSW · posted 9 jul 2026</div></span></label>
+    <label class="card role"><input type="checkbox" value="Applied Solutions Architect, Google Cloud"><span><a href="https://www.linkedin.com/jobs/view/4437566676" target="_blank" rel="noopener noreferrer">Applied Solutions Architect, Google Cloud</a><div class="meta">Google · Sydney, NSW · posted 9 jul 2026</div></span></label>
+    <label class="card role"><input type="checkbox" value="Customer Engineer, Platform, Google Cloud"><span><a href="https://www.linkedin.com/jobs/view/4437568616" target="_blank" rel="noopener noreferrer">Customer Engineer, Platform, Google Cloud</a><div class="meta">Google · Sydney, NSW · posted 9 jul 2026</div></span></label>
+    <label class="card role"><input type="checkbox" value="Software Engineer, Payments Identity"><span><a href="https://www.linkedin.com/jobs/view/4418252453" target="_blank" rel="noopener noreferrer">Software Engineer, Payments Identity</a><div class="meta">Google · Sydney, NSW · posted 8 jul 2026</div></span></label>
+    <label class="card role"><input type="checkbox" value="Forward Deployed Engineer III, Gen AI, Google Cloud"><span><a href="https://www.linkedin.com/jobs/view/4415292472" target="_blank" rel="noopener noreferrer">Forward Deployed Engineer III, Gen AI, Google Cloud</a><div class="meta">Google · Sydney, NSW · posted 7 jul 2026</div></span></label>
+  </section>
+
+  <h2>evidence</h2><div class="card"><p>Collected on 13 jul 2026 by the local <code>linkedin-job-agent</code> wrapper using LinkedIn’s public guest jobs endpoint.</p><p>Run result: 10 raw roles; 10 links validated against LinkedIn’s guest <code>jobPosting/&lt;id&gt;</code> endpoint; 6 roles retained after the configured job-search filters.</p><p class="small">All role links above are the wrapper’s returned LinkedIn URLs. This public page deliberately omits private calendar, reminder, contact, application, and referral information.</p></div>
+
+  <h2>send a review note</h2><div class="card"><label for="notes">what should Oli investigate next?</label><textarea id="notes" placeholder="e.g. compare the selected roles’ requirements"></textarea><p><button id="copy" type="button">copy feedback packet</button></p><div id="toast" class="toast" aria-live="polite"></div><pre id="out" aria-label="feedback packet"></pre><p class="small">Copy then paste this into the current Hermes chat. The page cannot send feedback directly.</p></div>
+</main>
+<script>
+const context={artifact_type:'interactive_job_search_feedback',artifact_title:document.title,artifact_url:location.href,instruction:'Continue from this public job-search artifact and use my selected roles and notes as the next input.'};
+function buildMessage(){const selected=[...document.querySelectorAll('#roles input:checked')].map(x=>x.value);const payload={...context,selected_roles:selected,notes:document.querySelector('#notes').value.trim(),created_at:new Date().toISOString()};const msg='oli, continue from this interactive html.\n\n```json\n'+JSON.stringify(payload,null,2)+'\n```';document.querySelector('#out').textContent=msg;return msg;}
+document.querySelectorAll('#roles input').forEach(x=>x.addEventListener('change',buildMessage));document.querySelector('#notes').addEventListener('input',buildMessage);document.querySelector('#copy').addEventListener('click',async()=>{const msg=buildMessage();try{await navigator.clipboard.writeText(msg);document.querySelector('#toast').textContent='copied — paste it into this Hermes chat.';}catch(e){document.querySelector('#toast').textContent='copy was blocked; select the packet below and copy it manually.';}});buildMessage();
+</script>
+</body></html>
