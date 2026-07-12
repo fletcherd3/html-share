@@ -2,7 +2,7 @@
 <style>
 :root{--bg:#f6f7fb;--ink:#162033;--muted:#697386;--card:#fff;--line:#dde3ee;--accent:#2458d3;--good:#0b7a4b;--warn:#a16207;--shadow:0 10px 30px rgba(20,35,70,.09)}
 *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.45} a{color:var(--accent)}
-.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:transform .24s ease, box-shadow .24s ease}.header.hidden{transform:translateY(-82%)}.header:hover,.header:focus-within{transform:translateY(0)}
+.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:transform .22s ease, box-shadow .22s ease}.header.folded{transform:translateY(calc(-100% + 10px));box-shadow:none}.header.folded:hover,.header.folded:focus-within{transform:translateY(0);box-shadow:var(--shadow)}
 .header-inner{max-width:1040px;margin:0 auto;padding:18px 20px 14px} h1{font-size:clamp(1.45rem,4vw,2.45rem);margin:0 0 4px;letter-spacing:-.04em} .sub,.meta,.fine{color:var(--muted)} .fine{font-size:.88rem}
 .controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px} input[type=search],textarea{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;color:var(--ink)} input[type=search]{min-width:min(420px,100%)} button{border:0;border-radius:12px;background:var(--ink);color:#fff;padding:10px 13px;cursor:pointer} button.secondary{background:#edf2ff;color:#18346e}
 main{max-width:1040px;margin:0 auto;padding:20px} .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:16px} .card,.role{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)} .card{padding:18px}
@@ -274,7 +274,7 @@ main{max-width:1040px;margin:0 auto;padding:20px} .summary{display:grid;grid-tem
 </main><div id="toast" class="toast">copied</div>
 <script>
 const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
-let lastY=scrollY; addEventListener('scroll',()=>{const h=$('#hdr'); if(scrollY>120 && scrollY>lastY) h.classList.add('hidden'); else h.classList.remove('hidden'); lastY=scrollY;});
+let lastY=scrollY; addEventListener('scroll',()=>{const h=$('#hdr'); h.classList.toggle('folded', scrollY>140); lastY=scrollY;});
 function filterCards(){const q=$('#q').value.toLowerCase().trim(); $$('.role').forEach(c=>{const hit=!q||c.innerText.toLowerCase().includes(q)||c.dataset.tags.includes(q); c.style.display=hit?'grid':'none';});}
 function selected(){return $$('.role input[type=checkbox]:checked').map(x=>({id:x.dataset.id,title:x.dataset.title}));}
 function refreshPacket(){const payload={...JSON.parse($('#context').textContent), selected_roles:selected(), notes:$('#notes').value.trim(), created_at:new Date().toISOString()}; const msg='oli, continue from this google linkedin jobs page.
