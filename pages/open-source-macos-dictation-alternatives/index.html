@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open-source macOS dictation alternatives</title>
+  <style>
+    :root { --ink:#17221d; --muted:#617169; --paper:#f7f5ef; --card:#fffdf8; --line:#d8d8cc; --accent:#24735a; --accent2:#e5f1e9; --warn:#795b18; --warnbg:#fff5d8; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { width:min(1040px, calc(100% - 36px)); margin:0 auto; padding:64px 0 80px; }
+    header { border-bottom:1px solid var(--line); padding-bottom:30px; margin-bottom:34px; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.13em; font-size:.75rem; font-weight:750; color:var(--accent); margin:0 0 10px; }
+    h1 { font:700 clamp(2.25rem, 5vw, 4.2rem)/1.03 Georgia, "Times New Roman", serif; letter-spacing:-.045em; margin:0; max-width:850px; }
+    .lede { max-width:750px; font-size:1.13rem; color:var(--muted); margin:20px 0 0; }
+    h2 { font:700 1.72rem/1.2 Georgia, "Times New Roman", serif; letter-spacing:-.02em; margin:46px 0 16px; }
+    h3 { font-size:1.18rem; margin:0 0 7px; }
+    p { margin:0 0 13px; }
+    a { color:#145e47; text-decoration-thickness:1px; text-underline-offset:3px; }
+    .recommendation { background:var(--accent); color:white; padding:25px 27px; border-radius:15px; box-shadow:0 10px 28px #1d4f3d26; }
+    .recommendation h2 { font-family:inherit; font-size:.82rem; text-transform:uppercase; letter-spacing:.1em; margin:0 0 7px; }
+    .recommendation p { font-size:1.06rem; margin:0; }
+    .recommendation strong { color:#ddf5e6; }
+    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:13px; background:var(--card); }
+    table { width:100%; border-collapse:collapse; min-width:770px; font-size:.91rem; }
+    th, td { text-align:left; vertical-align:top; padding:15px 16px; border-bottom:1px solid var(--line); }
+    th { color:var(--muted); background:#f0f0e9; font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; }
+    tr:last-child td { border-bottom:0; }
+    .yes { color:#126344; font-weight:700; } .partial { color:var(--warn); font-weight:700; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); gap:16px; }
+    article { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; }
+    article.featured { border:2px solid var(--accent); box-shadow:0 9px 25px #1d4f3d14; }
+    .tag { display:inline-block; margin:0 0 11px; padding:3px 8px; border-radius:99px; background:var(--accent2); color:#165a44; font-size:.75rem; font-weight:700; }
+    ul { margin:10px 0 0; padding-left:20px; } li { margin:5px 0; }
+    .note { background:var(--warnbg); border-left:4px solid #be8b17; padding:15px 17px; border-radius:0 9px 9px 0; color:#574112; }
+    .sources li { margin:8px 0; }
+    footer { color:var(--muted); border-top:1px solid var(--line); margin-top:52px; padding-top:18px; font-size:.88rem; }
+    @media (max-width:600px) { main { width:min(100% - 26px, 1040px); padding-top:38px; } .recommendation { padding:21px; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">research brief · 21 july 2026</p>
+    <h1>free, open-source macOS dictation that doesn’t rent you the LLM</h1>
+    <p class="lede">Alternatives to Superwhisper and Wispr Flow for system-wide voice dictation: local transcription, personal vocabulary, optional transcript cleanup with a key or model you control, and ideally a live transcript.</p>
+  </header>
+
+  <section class="recommendation">
+    <h2>short answer</h2>
+    <p><strong>Start with TypeWhisper.</strong> It is the strongest all-round match: polished native UI, local models, live partial transcription, a serious dictionary/corrections system, and cleanup workflows using local models or your own API keys. Try <strong>Looped Whisper</strong> second if you prefer a smaller, more focused app with the same essential ingredients.</p>
+  </section>
+
+  <h2>at-a-glance</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>App</th><th>Local speech models</th><th>Cleanup / BYOK</th><th>Dictionary</th><th>Live words</th><th>Licence / maturity</th></tr></thead>
+      <tbody>
+        <tr><td><strong>TypeWhisper</strong></td><td>WhisperKit, Parakeet, Qwen, Granite, Voxtral and more</td><td>Local MLX Gemma; Apple Intelligence; OpenAI, Claude, Gemini, Groq, OpenAI-compatible endpoints</td><td class="yes">Terms, corrections, learning, import packs</td><td class="yes">Yes — WhisperKit preview</td><td>GPLv3; active, largest community here</td></tr>
+        <tr><td><strong>Looped Whisper</strong></td><td>WhisperKit / Core ML, tiny → large-v3</td><td>Anthropic or any OpenAI-compatible endpoint</td><td class="yes">Dedicated vocabulary</td><td class="yes">Real-time captions</td><td>MIT; promising but new</td></tr>
+        <tr><td><strong>Handy</strong></td><td>Whisper + Parakeet v3</td><td>OpenAI-compatible path; companion supports Gemini, Claude or local Ollama</td><td class="yes">Yes</td><td class="partial">Fast PTT, not the most polished streaming UI</td><td>MIT; mature, cross-platform</td></tr>
+        <tr><td><strong>Pindrop</strong></td><td>WhisperKit + Parakeet</td><td class="partial">No strong LLM/BYOK cleanup story</td><td class="yes">Vocabulary + replacements</td><td class="yes">Parakeet streaming</td><td>MIT; simpler native option</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>the shortlist</h2>
+  <div class="cards">
+    <article class="featured">
+      <span class="tag">best overall</span>
+      <h3><a href="https://github.com/TypeWhisper/typewhisper-mac">TypeWhisper</a></h3>
+      <p>A close practical replacement for Superwhisper with the pricing model fixed: use local ASR and local cleanup, or route cloud cleanup through your own provider key.</p>
+      <ul>
+        <li>System-wide push-to-talk, toggle, or hybrid hotkeys; auto-paste; a notch/overlay/minimal UI.</li>
+        <li>WhisperKit provides a partial live transcript as you speak.</li>
+        <li>Terms improve recognition; corrections repair common mistakes; it can learn high-confidence corrections and load term packs.</li>
+        <li>Per-app / per-site workflows can change engine, language, prompt, cleanup style or submission behaviour.</li>
+        <li>macOS 14+; universal binary, Apple Silicon recommended. Install via DMG or <code>brew install --cask typewhisper/tap/typewhisper</code>.</li>
+      </ul>
+    </article>
+
+    <article>
+      <span class="tag">best focused option</span>
+      <h3><a href="https://github.com/loopedautomation/whisper">Looped Whisper</a></h3>
+      <p>The cleanest exact match on paper: local Whisper, real-time captions, a vocabulary feature, and cleanup through an API endpoint you control.</p>
+      <ul>
+        <li>Apple Silicon, macOS 14+; Core ML / WhisperKit local transcription.</li>
+        <li>Anthropic and OpenAI-compatible cleanup; keys live in macOS Keychain.</li>
+        <li>Notarized DMG and Homebrew cask available.</li>
+        <li>Main trade-off: it is new, so independent testing and community feedback are still thin.</li>
+      </ul>
+    </article>
+
+    <article>
+      <span class="tag">best broader OSS ecosystem</span>
+      <h3><a href="https://github.com/cjpais/Handy">Handy</a></h3>
+      <p>A well-known local-first project for macOS, Windows and Linux. Strong if portability and an entirely-local Ollama cleanup route matter more than Mac-native polish.</p>
+      <ul>
+        <li>Local Whisper/Parakeet, local VAD, dictionary, and system-wide dictation.</li>
+        <li>The companion project can chain Gemini API, Claude, or Ollama cleanup.</li>
+        <li>Install on macOS with <code>brew install --cask handy</code>.</li>
+        <li>HN feedback praises Parakeet performance, while noting some advanced settings are less discoverable.</li>
+      </ul>
+    </article>
+
+    <article>
+      <span class="tag">best simple local-only app</span>
+      <h3><a href="https://github.com/watzon/pindrop">Pindrop</a></h3>
+      <p>A native, no-subscription local dictation app with vocabulary and replacements. Great if raw transcription plus text replacements is enough.</p>
+      <ul>
+        <li>WhisperKit/Core ML and Parakeet, with local streaming support.</li>
+        <li>Custom vocabulary and replacements; global shortcut and automatic insertion.</li>
+        <li>MIT licence; macOS 14+, Apple Silicon recommended.</li>
+        <li>It does not currently offer the rich BYOK LLM post-processing that makes TypeWhisper or Looped Whisper more compelling.</li>
+      </ul>
+    </article>
+  </div>
+
+  <h2>other good apps that miss the strict brief</h2>
+  <div class="note">
+    <strong>VoiceInk:</strong> strong UX reputation and local models/dictionary, but the prebuilt app is trial/licensed; building from GPL source is free. <br>
+    <strong>Local Whisper:</strong> excellent fully-local Parakeet/Qwen/Ollama/LM Studio path, but licensed PolyForm Noncommercial — source-available, not OSI open source. <br>
+    <strong>MacWhisper:</strong> probably the established polished control option, with local models and BYOK/local AI processing, but it is not open source and premium features are paid.
+  </div>
+
+  <h2>what people seem to think</h2>
+  <p><strong>TypeWhisper</strong> has the clearest evidence of active momentum: roughly 1.6k GitHub stars, 30 contributors, frequent releases, and several independent write-ups calling out its live overlay, dictionary, provider choice and clean Mac UI. <strong>VoiceInk</strong> is the recurring community pick for polish, but fails the no-payment requirement. <strong>Handy</strong> has positive reports on speed and local Parakeet performance, though less admiration for its discoverability. The newer Looped Whisper and Pindrop have the right feature sets, but insufficient independent sentiment to treat as proven.</p>
+
+  <h2>a sensible two-app test</h2>
+  <ol>
+    <li>Install <strong>TypeWhisper</strong> and choose WhisperKit for live preview, or Parakeet for speed.</li>
+    <li>Build a tiny dictionary: your name, company/product names, people you message often, technical words, and commonly mangled terms.</li>
+    <li>Set up two cleanup workflows: one fully local through a local model, another using an API key you own for comparison.</li>
+    <li>Test it against <strong>Looped Whisper</strong> with the same 5–10 real dictations: a message, an email, technical jargon, a noisy room, and a long thought.</li>
+    <li>Keep the one that gets out of your way. UI latency and edit rate matter more than benchmark claims.</li>
+  </ol>
+
+  <h2>sources</h2>
+  <ul class="sources">
+    <li><a href="https://github.com/TypeWhisper/typewhisper-mac">TypeWhisper official repository, features, installation and licence</a></li>
+    <li><a href="https://bryanmanio.com/blog/all-aboard-the-voice-to-text-train/">Independent TypeWhisper usage write-up</a></li>
+    <li><a href="https://github.com/loopedautomation/whisper">Looped Whisper official repository</a> · <a href="https://news.ycombinator.com/item?id=48711840">Show HN discussion</a></li>
+    <li><a href="https://github.com/cjpais/Handy">Handy official repository</a> · <a href="https://github.com/evgeniyk78/handy-companion">Handy Companion cleanup options</a></li>
+    <li><a href="https://github.com/watzon/pindrop">Pindrop official repository</a></li>
+    <li><a href="https://github.com/Beingpax/VoiceInk">VoiceInk official repository</a> · <a href="https://github.com/gabrimatic/local-whisper">Local Whisper official repository</a> · <a href="https://www.macwhisper.com/">MacWhisper</a></li>
+  </ul>
+
+  <footer>Prepared from official project documentation and a limited set of independent community/write-up sources. Features and licences can change; verify the latest release notes before committing to one.</footer>
+</main>
+</body>
+</html>
